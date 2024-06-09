@@ -1,0 +1,400 @@
+/* hide template element, necessary to read image from cv2 */
+#templatesheet{
+    display:none;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #5e895d;
+    overflow:hidden;
+    height: 100vh;
+
+    display: flex;
+    flex-flow: column;
+}
+
+#content{
+    flex-grow: 1;
+    width:100%;
+    display: flex;
+    max-width:1920px;
+    margin: 0 auto;
+
+    margin-top: 68px;
+
+    align-self: center;
+
+    overflow: auto;
+    
+
+}
+#content > div{
+    text-align: center;
+}
+
+
+.hidden, #noWebcam.hidden, #webcamFeed.hidden, #solutionBox.hidden {
+    display: none;
+}
+
+
+#solutionPanel, #camPanel{
+   align-content: center;
+   position: relative;
+   padding: 25px;
+}
+
+
+/* BOARD */
+
+#board {
+
+    height: fit-content;
+    width: fit-content;
+
+
+    display: grid;
+    gap: 10px; /* space between tiles */
+    margin: 0 auto;
+    padding: 12px;
+
+    
+    background-color: #41593e;
+    border-radius: 18px;
+    border: 6px solid #92e68d;
+
+    box-shadow:  0 22px 10px -10px rgba(0, 0, 0, 0.4);
+}
+#board > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4c581;
+    color: black;
+    font-size: 58px;
+    height: 75px;
+    width: 75px;
+    box-shadow: 0 12px 10px -10px black;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+#board > div.highlight{
+    background-color: #74eb73;
+    color:#004e00;
+}
+
+/* CONNECTORS */
+
+#board{
+    position:relative;
+}
+
+#board > div#connectorContainer{
+    opacity: 65%;
+    position: absolute;
+    width:0;
+    height:0;
+    background: none;
+}
+
+.connector{
+    background-color: white;
+    position:absolute;;
+    border-radius: 3px;
+}
+
+.connector.ul, .connector.dr{
+    transform: rotate(45deg) ; 
+}
+
+.connector.ur, .connector.dl{
+    transform:  rotate(-45deg) ; 
+}
+
+/* WORD LIST */
+
+#wordList{
+    background-color: #152a05;
+    overflow: auto;
+    border-radius: 5px;
+    overflow-y: auto;
+
+    box-shadow:  0 22px 10px -10px rgba(0, 0, 0, 0.4);
+
+}
+
+#wordList::-webkit-scrollbar {
+    width: 6px;
+    opacity:60%;
+    border-radius: 0 5px 5px 0;
+    background-color: #4e524b;
+
+}
+
+#wordList::-webkit-scrollbar-thumb{
+    background-color: #87937d;
+    border-radius: 3px;
+}
+
+#wordList::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
+}
+
+
+.word{
+    border-radius: 3px;
+    color: black;
+    background-color:#f4c581;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.word:hover{
+    cursor: pointer;
+}
+
+.wordRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.wordRow.selected{
+    background-color: #3a6f23;
+}
+
+.points{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* WEBCAM PANEL */
+
+#camPanel{
+    flex: 1;
+}
+
+#webcamBox{
+    width: 70%;
+    min-width: 350px;
+    max-width: 550px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border:#333 solid 2px;
+    height: fit-content;
+    box-shadow:  0 22px 10px -10px rgba(0, 0, 0, 0.4);
+    position:relative;
+
+}
+
+#noWebcam{
+
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: #333;
+    color: white;
+}
+
+
+#noWebcam:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#webcamFeed{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* BANNER */
+
+
+#banner{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    background-color: #1c1c1c;
+    color: #ffffff;
+    width: 100%;
+    height: 40px;
+
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 22.5px;
+
+    padding: 13.5px 13.5px;
+
+    z-index: 10;
+}
+
+#pageTitle{
+    display: inline-block;
+    height:100%;
+    line-height: 40px;
+    vertical-align: middle;
+
+}
+
+#logo{
+    display: inline-block;
+
+    border-radius: 50%;
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* BG PATTERN */
+
+
+body:before {
+    content: "";
+    position: absolute;
+    top: -5000px;
+    left: -5000px;
+    width: 10000px;
+    height: 10000px;
+    background-image: url('../assets/bg.png');
+    background-repeat: repeat;
+    image-rendering: pixelated;
+    transform: rotate(45deg); 
+    transform-origin: center;
+    z-index: -1;
+    background-size: 160px;
+}
+
+
+/* SOLUTIONS */
+
+#solutionHint, #camHint{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-style: italic;
+    color: #FFFFFF;
+  }
+
+#solutionHint{
+    top:100%;
+}
+
+#solutionPanel{
+    flex: 2;
+}
+
+#solutionDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position:relative;
+}
+
+
+#solutionBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#wordList{
+    height: 342px;
+    width: 250px;
+
+    margin-left:35px;
+}
+
+/* OVERVIEW CARD */
+
+#solutionOverview{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: white;
+    width: fit-content;
+    height:60px;
+    display: flex;
+    position: absolute;
+    text-align: left;
+    margin-top:9px;
+    top:0;
+    z-index:2;
+}
+
+#avatar{
+    /* border-radius: 50%; */
+    padding: 6px;
+    margin-left:9px;
+}
+
+#stats{
+    margin-top: -8px;
+    align-content: center;
+    padding-right:15px;
+}
+
+#wordCount, #totalScore{
+    display: block;
+}
+
+#wordCount{
+    font-size:15px;
+    height:15px;
+}
+
+#totalScore{
+    margin-top:-5px;
+    font-size: 28px;
+    height:28px;
+}
+
+#solutionOverview::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    height: 12px;
+    width: 100%;
+    left: 0;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/23618/rip.svg) bottom;
+    background-size: 50%;
+  }
+
+  #solutionOverview::before {
+    content: "";
+    position: absolute;
+    top: -10.8px;
+    height: 12px;
+    width: 100%;
+    left: 0;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/23618/rip.svg) bottom;
+    background-size: 50%;
+    transform: rotate(180deg);
+  }
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Hunt Solver</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+    <!-- Header Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id = "banner">
+        <img id="logo" src = "assets/logo.webp">
+        <span id="pageTitle">GamePigeon Word Hunt Solver</span>
+    </div>
+
+    <div id = "content">
+        <div id = "camPanel">
+            <div id = "webcamBox">
+                <video class = "hidden" id="webcamFeed" autoplay></video>
+                <div id = "noWebcam">Waiting for webcam...</div>
+                <p id ="camHint" class = "hidden">Hold your phone up to your webcam. Try to make sure the whole board is in frame and is not at an angle.</p>
+
+            </div>
+
+        </div>
+        <div id = "solutionPanel">
+            <div id = "solutionBox" class="hidden">
+                <div id="solutionOverview">
+                    <img id = "avatar" src = "assets/avatar.webp">
+                    <div id="stats">
+                        <span id="wordCount"></span>
+                        <span id="totalScore"></span>
+                    </div>
+                </div>
+                <div id="solutionDetails">
+                    <div id = "board">
+                        <div id="connectorContainer"></div>
+                    </div>
+                    <div id = "wordList"></div>
+                    <p id="solutionHint">Click a word to show it on the board or use the arrow keys to navigate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <img id = "templatesheet" src = "assets/templatesheet.png">
+    <canvas id = "frameCanvas" class = "hidden"></canvas>
+    <script src = "https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src = "scripts/trie.js"></script>
+    <script src = "scripts/huntwords.js"></script>
+    <script src = "scripts/main.js"></script>
+    <script async src="https://docs.opencv.org/master/opencv.js" type="text/javascript"></script>
+</html>
