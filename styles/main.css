@@ -10,6 +10,7 @@
         top: 0;
         left: 0;
         height: 100vh;
+        width: 100%;
         background-color: #333;
         color: white;
         font-size: 1.5em;
@@ -20,6 +21,8 @@
         display: flex;
         align-items: center; 
         justify-content: center; 
+
+        box-sizing: border-box;
     }
 }
 
@@ -39,6 +42,8 @@ body{
     background-color: #5e895d;
     overflow:hidden;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 
     display: flex;
     flex-flow: column;
