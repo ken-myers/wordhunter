@@ -30,6 +30,12 @@ $(document).ready(main);
 
 function showCam(){
 
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    if (mediaQuery.matches){
+        hideCam("Click to start scanning.");
+        return;
+    }
+
     navigator.mediaDevices.getUserMedia({ video: true }).then((newStream) => {
         stream = newStream;
         webcamFeed.srcObject = stream;
