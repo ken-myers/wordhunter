@@ -1,3 +1,29 @@
+#mobileNotice{
+    display: none;
+
+}
+
+/* mobile only media query */
+@media only screen and (max-width: 768px) {
+    #mobileNotice{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+        padding: 20px;
+        z-index: 1000;
+
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+    }
+}
+
+
 /* hide template element, necessary to read image from cv2 */
 #templatesheet{
     display:none;
